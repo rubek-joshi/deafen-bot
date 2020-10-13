@@ -1,6 +1,6 @@
 module.exports = {
   name: "mute",
-  description: "This is a command to undeafen",
+  description: "This is a command to mute/deafen",
   execute(message, args) {
     const voiceChannel = message.member.voice.channel;
 

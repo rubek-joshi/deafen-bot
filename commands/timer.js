@@ -2,7 +2,7 @@ const ms = require("ms");
 
 module.exports = {
   name: "timer",
-  description: "This is a command to deafen",
+  description: "This is a command to mute/deafen for a certain period of time",
   execute(message, args) {
     const voiceChannel = message.member.voice.channel;
 
@@ -16,7 +16,7 @@ module.exports = {
 
     // check if time is valid
     if (!ms(time))
-      return message.reply("invalid time bruh! (Hint: Duration not date)");
+      return message.reply("invalid time bruh! (Hint: 1s, 2m, 2mins, 3hrs )");
 
     message.channel
       .send(
@@ -30,7 +30,7 @@ module.exports = {
     }
 
     setTimeout(() => {
-      //undeafen
+      //undeafen or unmute each member
       for (const [memberID, member] of voiceChannel.members) {
         member.voice.setMute(false).catch(console.error);
         // member.voice.setDeaf(false).catch(console.error);
