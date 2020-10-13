@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
-const token = "";
+const token = "NzY1NTg4MzYwNjA1MjA0NTEy.X4W_uQ.Xp0mZv_Qvbn0hUcWeRvDUedbtfU";
 
 const prefix = "shh ";
 
@@ -27,12 +27,13 @@ bot.on("message", (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-  console.log("Command: ", command);
+  console.log("Command:", command);
   switch (command) {
     case "ping":
       bot.commands.get("ping").execute(message, args);
       break;
     case "pls":
+      console.log(args);
       bot.commands.get("pls").execute(message, args);
       break;
     case "over":

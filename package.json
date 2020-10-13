@@ -9,6 +9,7 @@
   "author": "Rubek Joshi",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1"
+    "discord.js": "^12.3.1",
+    "ms": "^2.1.2"
   }
 }
