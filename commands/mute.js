@@ -1,5 +1,5 @@
 module.exports = {
-  name: "over",
+  name: "mute",
   description: "This is a command to undeafen",
   execute(message, args) {
     const voiceChannel = message.member.voice.channel;
@@ -22,11 +22,12 @@ module.exports = {
       message.channel.send("Undeafening!");
     } else message.channel.send("You don't have permission"); */
 
-    message.reply("Unmuting...");
+    message.channel.send(
+      "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/10/among-us-shh.jpg"
+    );
     for (const [memberID, member] of voiceChannel.members) {
-      member.voice.setMute(false).catch(console.error);
-      // member.voice.setDeaf(false).catch(console.error);
+      member.voice.setMute(true).catch(console.error);
+      // member.voice.setDeaf(true).catch(console.error);
     }
-
   },
 };

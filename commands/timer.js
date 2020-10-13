@@ -1,7 +1,7 @@
 const ms = require("ms");
 
 module.exports = {
-  name: "pls",
+  name: "timer",
   description: "This is a command to deafen",
   execute(message, args) {
     const voiceChannel = message.member.voice.channel;
@@ -18,7 +18,11 @@ module.exports = {
     if (!ms(time))
       return message.reply("invalid time bruh! (Hint: Duration not date)");
 
-    message.channel.send("Shushing...");
+    message.channel
+      .send(
+        "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/10/among-us-shh.jpg"
+      )
+      .then((msg) => msg.delete({ timeout: ms(time) }));
 
     for (const [memberID, member] of voiceChannel.members) {
       member.voice.setMute(true).catch(console.error);

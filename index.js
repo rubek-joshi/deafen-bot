@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const token = "NzY1NTg4MzYwNjA1MjA0NTEy.X4W_uQ.Xp0mZv_Qvbn0hUcWeRvDUedbtfU";
 
-const prefix = "shh ";
+const prefix = ["shh!", "s!"];
 
 const fs = require("fs");
 
@@ -22,7 +22,12 @@ for (const file of commandFiles) {
 bot.once("ready", () => console.log("Bot is online biatch!"));
 
 bot.on("message", (message) => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (
+    (!message.content.startsWith(prefix[0]) &&
+      !message.content.startsWith(prefix[1])) ||
+    message.author.bot
+  )
+    return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
@@ -32,12 +37,18 @@ bot.on("message", (message) => {
     case "ping":
       bot.commands.get("ping").execute(message, args);
       break;
-    case "pls":
+    case "timer":
+    case "t":
       console.log(args);
-      bot.commands.get("pls").execute(message, args);
+      bot.commands.get("timer").execute(message, args);
       break;
-    case "over":
-      bot.commands.get("over").execute(message, args);
+    case "mute":
+    case "m":
+      bot.commands.get("mute").execute(message, args);
+      break;
+    case "unmute":
+    case "u":
+      bot.commands.get("unmute").execute(message, args);
       break;
     default:
       console.log("Unrecognized command");
