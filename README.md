@@ -29,4 +29,5 @@ This bot is currently hosted at Heruko which is free upto a certain extent. Migh
 
 ### TODO
 - [ ] Roles and Permission Handling
-- [ ] Dynamic prefix checks
+- [x] Dynamic prefix checks
+- [ ] Play music option when using timer
