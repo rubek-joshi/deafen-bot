@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 require("dotenv-flow").config();
-const { prefix } = require("./config.json");
+const { prefixes } = require("./config.json");
 const fs = require("fs");
 
 bot.commands = new Discord.Collection();
@@ -19,15 +19,14 @@ for (const file of commandFiles) {
 bot.once("ready", () => console.log("Bot is online biatch!"));
 
 bot.on("message", (message) => {
-  // TODO: handle dynamic no. of prefixes
-  if (
-    (!message.content.startsWith(prefix[0]) &&
-      !message.content.startsWith(prefix[1])) ||
-    message.author.bot
-  )
-    return;
+  // check for any one of the bot prefixes
+  let isBotCalled = false;
+  prefixes.forEach(prefix => {
+    if (message.content.startsWith(prefix)) return (isBotCalled = true);
+  })
+  if (!isBotCalled || message.author.bot) return;
 
-  const args = message.content.slice(prefix.length).split(/ +/);
+  const args = message.content.slice(prefixes.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
   switch (command) {
