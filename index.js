@@ -16,14 +16,23 @@ for (const file of commandFiles) {
   bot.commands.set(command.name, command);
 }
 
-bot.once("ready", () => console.log("Bot is online biatch!"));
+bot.once("ready", () => {
+  console.log("Bot is online biatch!");
+  // to display prefix of bot to users
+  bot.user.setPresence({
+    activity: {
+      type: "LISTENING",
+      name: prefixes.map((prefix) => prefix).join(" | "),
+    },
+  });
+});
 
 bot.on("message", (message) => {
   // check for any one of the bot prefixes
   let isBotCalled = false;
-  prefixes.forEach(prefix => {
+  prefixes.forEach((prefix) => {
     if (message.content.startsWith(prefix)) return (isBotCalled = true);
-  })
+  });
   if (!isBotCalled || message.author.bot) return;
 
   const args = message.content.slice(prefixes.length).split(/ +/);

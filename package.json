@@ -4,6 +4,7 @@
   "description": "A discord bot that helps to manage deafening voice channels",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rubek Joshi",
