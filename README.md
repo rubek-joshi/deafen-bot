@@ -7,6 +7,7 @@ A simple discord bot that silences everyone present in the voice channel the use
 ### Commands
 Command | What it does?
 ------------ | -------------
+`ping` | ping the bot and check if bot is responding or not
 `mute` or `m` | mutes everyone in the voice channel the user is present in
 `unmute` or `u` | unmutes everyone in the voice channel the user is present in
 `timer` or `t` | mutes everyone in the voice channel the user is present in for the specified duration
