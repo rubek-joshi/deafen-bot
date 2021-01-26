@@ -14,10 +14,11 @@ Command | What it does?
 ### Example
 ```
 s!m
+s!mute
 s!u
-shh!m
 shh!u
-ssh!timer 30s
+s!t 30s
+ssh!t 1h
 ssh!timer 2min
 ```
 For further info on setting duration of timer, please refer to this [repo](https://github.com/vercel/ms).
