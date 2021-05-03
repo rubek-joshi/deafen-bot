@@ -1,6 +1,6 @@
 {
   "name": "deafen-bot",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A discord bot that helps to manage deafening voice channels",
   "main": "index.js",
   "scripts": {
